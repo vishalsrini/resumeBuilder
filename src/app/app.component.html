@@ -1,3 +1,105 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+  <div class="hero background-sky">
+    <div class="row">
+      <!-- Left side Profile Picture and General Description -->
+      <div class="col-md-6 col-xs-12">
+        <div class="media">
+          <div class="media-left">
+            <img [src]="resume.profileUrl" class="img img-circle profilePic">
+          </div>
+          <div class="media-body media-body-top">
+            <h2 class="media-heading"> {{resume.name}} </h2>
+            <h6> {{resume.designation}} </h6>
+            <h6> {{resume.title}} </h6>
+          </div>
+        </div>
+      </div>
+      <!-- Right side contact informations -->
+      <div class="col-md-6 col-xs-12 contactInformation">
+        <h5> +91 - {{resume.contact.phone}} </h5>
+        <div class="externalLinks">
+          <a [href]="resume.contact.email"> <i class="fa fa-envelope-square" aria-hidden="true"></i> </a>
+          <a [href]="resume.contact.facebook"> <i class="fa fa-facebook-square" aria-hidden="true"></i> </a>
+          <a [href]="resume.contact.twitter"> <i class="fa fa-twitter-square" aria-hidden="true"></i> </a>
+          <a [href]="resume.contact.googleplus"> <i class="fa fa-google-plus-square" aria-hidden="true"></i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-12 text-muted">
+    <h3> Recent Developments </h3>
+    <hr>
+  </div>
+  <br>
+  <div class="col-12 col-md-4 gap" *ngFor="let app of resume.highlights">
+    <!-- Card Flip -->
+    <div class="card-flip">
+      <div class="flip">
+        <div class="front">
+          <!-- front content -->
+          <div class="card">
+            <img class="card-img" [src]="app.src" alt="{{app.name}}">
+          </div>
+        </div>
+        <div class="back">
+          <!-- back content -->
+          <div class="card backOverlay">
+            <div class="card-img-overlay">
+              <h4 class="card-title">{{app.name}}</h4>
+              <p class="card-text">{{app.description}}</p>
+              <p class="card-text"><small class="text-muted">{{app.createdBy}}</small></p>
+              <a [href]="app.link" class="btn btn-primary">{{app.actionButton}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card Flip -->
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-md-12 text-muted">
+    <h3> Education </h3>
+    <hr>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12 col-md-4 fullHeight" *ngFor="let education of resume.education">
+      <div class="card card-inverse card-primary mb-4 fullHeight">
+        <div class="card-block">
+          <div class="media">
+            <div class="d-flex mr-4">
+              <h1> {{education.percentage}} </h1> <br> <span> % </span>
+            </div>
+
+            <div class="media-body">
+              <h5 class="mt-0">{{education.department}}</h5>
+              <small> {{education.year}} </small>
+              <h6> {{education.institution}} </h6>
+              <span class="board text-primary"> {{education.board}} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-md-12 text-muted">
+    <h3> Awards </h3>
+    <hr>
+  </div>
+
+  <br>
+
+  
+
+</div>
